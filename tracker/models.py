@@ -1,6 +1,6 @@
 from django.db import models
 
-# Module added that auto creates a child model on createaion of a parent module
+# Module added that auto creates a child model on creation of a parent module
 # Added to auto create a portfolio on creation of a user
 from django_auto_one_to_one import AutoOneToOneModel
 
@@ -42,10 +42,12 @@ class Investment(models.Model):
   investment_date = models.DateField()
   CASH = 'CH'
   CASH_ISA = 'PN'
+  CROWD_INVESTMENT = 'CI'
   PENSION = 'PN'
   INVESTMENT_TYPE_CHOICES = [
     (CASH, 'Cash'),
     (CASH_ISA, 'Cash ISA'),
+    (CROWD_INVESTMENT, 'Crowd Investment'),
     (PENSION, 'Pension'),
   ]
   investment_type = models.CharField(
@@ -56,6 +58,7 @@ class Investment(models.Model):
   investment_name = models.CharField(max_length=50)
   initial_value = models.DecimalField(max_digits=10, decimal_places=5)
   comment = models.CharField(blank=True, max_length=50)
+  
   
   def __str__(self):
     return f'{self.user_id} - {self.investment_type} - {self.investment_name}'

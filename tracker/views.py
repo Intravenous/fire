@@ -4,26 +4,9 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.response import Response # get the Response class from DRF
 
 from .models import Stock, Trade, Wishlist, Investment, Portfolio, HistInvestmentValue
-from .serializers import StockSerializer, TradeSerializer, WishlistSerializer, InvestmentSerializer, PortfolioSerializer, HistInvestmentValueSerializer
+from .serializers import StockSerializer, TradeSerializer, WishlistSerializer, InvestmentSerializer, PortfolioSerializer, HistInvestmentValueSerializer, PopulatedWishlistSerializer, PopulatedPortfolioSerializer
 
 # Create your views here.
-# class StockListView(APIView): # extend the APIView
-
-#     def get(self, _request):
-#         stocks = Stock.objects.all()
-#         serializer = StockSerializer(stocks, many=True)
-
-#         return Response(serializer.data) # send the JSON to the client
-
-
-# class StockDetailView(APIView): # extend the APIView
-
-#     def get(self, _request, pk):
-#         stock = Stock.objects.get(pk=pk) # get a book by id (pk means primary key)
-#         serializer = StockSerializer(stock)
-
-#         return Response(serializer.data) # send the JSON to the client
-
 class StockListView(ListCreateAPIView):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
@@ -41,14 +24,23 @@ class TradeDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Trade.objects.all()
     serializer_class = TradeSerializer
 
+# Doesn't populated symbol for some reason, need to investigate if required
+# class TradeListView(ListCreateAPIView):
+#     queryset = Trade.objects.all()
+#     serializer_class = PopulatedTradeSerializer
+
+# class TradeDetailView(RetrieveUpdateDestroyAPIView):
+#     queryset = Trade.objects.all()
+#     serializer_class = PopulatedTradeSerializer
+
 
 class WishlistListView(ListCreateAPIView):
     queryset = Wishlist.objects.all()
-    serializer_class = WishlistSerializer
+    serializer_class = PopulatedWishlistSerializer
 
 class WishlistDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Wishlist.objects.all()
-    serializer_class = WishlistSerializer
+    serializer_class = PopulatedWishlistSerializer
 
 
 class InvestmentListView(ListCreateAPIView):
@@ -62,11 +54,11 @@ class InvestmentDetailView(RetrieveUpdateDestroyAPIView):
 
 class PortfolioListView(ListCreateAPIView):
     queryset = Portfolio.objects.all()
-    serializer_class = PortfolioSerializer
+    serializer_class = PopulatedPortfolioSerializer
 
 class PortfolioDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Portfolio.objects.all()
-    serializer_class = PortfolioSerializer
+    serializer_class = PopulatedPortfolioSerializer
 
 
 class HistInvestmentValueListView(ListCreateAPIView):
