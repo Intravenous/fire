@@ -3,7 +3,7 @@ import axios from 'axios'
 import auth from '../lib/auth'
 // import { Link } from 'react-router-dom'
 
-class Register extends React.Component {
+class Investment extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -28,7 +28,7 @@ class Register extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     axios
-      .post('/api/register', this.state.data)
+      .post('/investment', this.state.data)
       .then((res) => console.log('response', res))
       .then((res) => {
         // Auto login after registration code to be completed. After registrstion want to auto login, rather than have to manually login

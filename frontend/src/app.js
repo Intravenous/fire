@@ -9,6 +9,8 @@ import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Register from './components/Register'
 import Login from './components/Login'
+import Profile from './components/Profile'
+import Discover from './components/Discover'
 
 const App = () => (
   <HashRouter>
@@ -17,6 +19,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/discover" component={Discover} />
     </Switch>
   </HashRouter>
 )

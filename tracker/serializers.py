@@ -6,7 +6,7 @@ class StockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
-        fields = ('symbol', 'company_name', 'primary_exchange', 'isin')
+        fields = ('id', 'symbol', 'company_name', 'primary_exchange', 'isin')
 
 class TradeSerializer(serializers.ModelSerializer):
 
@@ -45,7 +45,7 @@ class HistInvestmentValueSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HistInvestmentValue
-        fields = ('investment_id', 'date', 'current_value')
+        fields = ('id', 'investment_id', 'date', 'current_value')
 
 
 class PopulatedWishlistSerializer(serializers.ModelSerializer):

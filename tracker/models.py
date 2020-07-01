@@ -41,13 +41,13 @@ class Investment(models.Model):
         User, related_name='investment', on_delete=models.CASCADE)
   investment_date = models.DateField()
   CASH = 'CH'
-  CASH_ISA = 'PN'
-  CROWD_INVESTMENT = 'CI'
+  CASH_ISA = 'CI'
+  EQUITY_CROWDFUNDING = 'EC'
   PENSION = 'PN'
   INVESTMENT_TYPE_CHOICES = [
     (CASH, 'Cash'),
     (CASH_ISA, 'Cash ISA'),
-    (CROWD_INVESTMENT, 'Crowd Investment'),
+    (EQUITY_CROWDFUNDING, 'Equity Crowdfunding'),
     (PENSION, 'Pension'),
   ]
   investment_type = models.CharField(
@@ -58,6 +58,7 @@ class Investment(models.Model):
   investment_name = models.CharField(max_length=50)
   initial_value = models.DecimalField(max_digits=10, decimal_places=5)
   comment = models.CharField(blank=True, max_length=50)
+  sold = models.BooleanField(default=False)
   
   
   def __str__(self):

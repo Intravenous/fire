@@ -15,7 +15,8 @@ class NavBar extends React.Component {
     this.props.history.push('/')
   }
 
-  // Mobile NavBar code to comback to and review
+  // What does the below and navMobileOpen: false in state do?  In LABS, but not BookedUp
+  
   // componentDidUpdate(prevProps) {
   //   if (this.props.location.pathname !== prevProps.location.pathname) {
   //     this.setState({ navMobileOpen: false })
@@ -54,7 +55,7 @@ class NavBar extends React.Component {
 
             <div className="navbar-end">
               {isLoggedIn && <div className="navbar-item">
-                <Link to="/crate">Portfolio</Link>
+                <Link to="/portfolio">Portfolio</Link>
               </div>}
               <div className="navbar-item">
                 <Link to="/discover">Discover</Link>
