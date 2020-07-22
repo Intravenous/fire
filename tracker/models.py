@@ -44,11 +44,13 @@ class Investment(models.Model):
   CASH_ISA = 'CI'
   EQUITY_CROWDFUNDING = 'EC'
   PENSION = 'PN'
+  STOCK_OPTIONS = 'SO'
   INVESTMENT_TYPE_CHOICES = [
     (CASH, 'Cash'),
     (CASH_ISA, 'Cash ISA'),
     (EQUITY_CROWDFUNDING, 'Equity Crowdfunding'),
     (PENSION, 'Pension'),
+    (STOCK_OPTIONS, 'Stock Options'),
   ]
   investment_type = models.CharField(
     max_length=2,

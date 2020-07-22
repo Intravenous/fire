@@ -54,12 +54,18 @@ class NavBar extends React.Component {
             }`}>
 
             <div className="navbar-end">
-              {isLoggedIn && <div className="navbar-item">
-                <Link to="/portfolio">Portfolio</Link>
-              </div>}
               <div className="navbar-item">
                 <Link to="/discover">Discover</Link>
               </div>
+              {isLoggedIn && <div className="navbar-item">
+                <Link to="/portfolio">Portfolio</Link>
+              </div>}
+              {isLoggedIn && <div className="navbar-item">
+                <Link to="/investment">Investment</Link>
+              </div>}
+              {isLoggedIn && <div className="navbar-item">
+                <Link to="/trade">Trade</Link>
+              </div>}
               {!isLoggedIn && <div className="navbar-item">
                 <Link to="/register">Register</Link>
               </div>}

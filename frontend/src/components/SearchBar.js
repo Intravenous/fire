@@ -11,7 +11,6 @@ const SearchBar = ({ handleChange, handleSubmit }) => {
             className="input is-medium"
             type="search"
             placeholder="Search by stock symbol"
-            // value={query}
             onChange={handleChange}
           />
           <div className="control">

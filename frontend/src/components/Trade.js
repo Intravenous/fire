@@ -3,17 +3,22 @@ import axios from 'axios'
 import auth from '../lib/auth'
 // import { Link } from 'react-router-dom'
 
-class Investment extends React.Component {
+class Trade extends React.Component {
   constructor() {
     super()
     this.state = {
       data: {
-        date: '',
-        investment_type: '',
-        investment_name: '',
-        initial_value: '',
+        symbol: '',
+        trade_date: '',
+        number_of_shares: '',
+        price_per_share: '',
+        commission: '',
+        stamp_duty: '',
+        total_cost: '',
+        account_type: '',
+        broker: '',
         comment: '',
-        investment_sold: ''
+        trade_sold: ''
       },
       errors: {}
     }
@@ -28,7 +33,7 @@ class Investment extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     axios
-      .post('/investment', this.state.data)
+      .post('/trade', this.state.data)
       .then((res) => console.log('response', res))
       .then((res) => {
         // Auto login after registration code to be completed. After registrstion want to auto login, rather than have to manually login
@@ -62,12 +67,12 @@ class Investment extends React.Component {
                         onSubmit={(event) => this.handleSubmit(event)}
                       >
                         <div className="field">
-                          <label className="label">Investment Date</label>
+                          <label className="label">Symbol</label>
                           <div className="control">
                             <input
                               onChange={(event) => this.handleChange(event)}
-                              type="datetime-local"
-                              name="investment_date"
+                              type="input"
+                              name="symbol"
                               className="input"
                             />
                           </div>
@@ -76,12 +81,26 @@ class Investment extends React.Component {
                           )} */}
                         </div>
                         <div className="field">
-                          <label className="label">Investment Type</label>
+                          <label className="label">Trade Date</label>
+                          <div className="control">
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="datetime-local"
+                              name="trade_date"
+                              className="input"
+                            />
+                          </div>
+                          {/* {errors.email && (
+                            <small className="help is-danger">{errors.email}</small>
+                          )} */}
+                        </div>
+                        <div className="field">
+                          <label className="label">Number of Shares</label>
                           <div className="control">
                             <input
                               onChange={(event) => this.handleChange(event)}
                               type="text"
-                              name="investment_type"
+                              name="num_shares"
                               className="input"
                             />
                           </div>
@@ -92,12 +111,28 @@ class Investment extends React.Component {
                           )} */}
                         </div>
                         <div className="field">
-                          <label className="label">Investment Name</label>
+                          <label className="label">Price per Share</label>
                           <div className="control">
                             <input
                               onChange={(event) => this.handleChange(event)}
                               type="text"
-                              name="investment_name"
+                              name="price_per_share"
+                              className="input"
+                            />
+                          </div>
+                          {/* {errors.username && (
+                            <small className="help is-danger">
+                              {errors.username}
+                            </small>
+                          )} */}
+                        </div>
+                        <div className="field">
+                          <label className="label">Commission</label>
+                          <div className="control">
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="text"
+                              name="commission"
                               className="input"
                             />
                           </div>
@@ -108,12 +143,12 @@ class Investment extends React.Component {
                           )} */}
                         </div>
                         <div className="field">
-                          <label className="label">Initial Value</label>
+                          <label className="label">Stamp Duty</label>
                           <div className="control">
                             <input
                               onChange={(event) => this.handleChange(event)}
                               type="text"
-                              name="initial_value"
+                              name="stamp_duty"
                               className="input"
                             />
                           </div>
@@ -124,12 +159,59 @@ class Investment extends React.Component {
                           )} */}
                         </div>
                         <div className="field">
-                          <label className="label">Comment</label>
+                          <label className="label">Total Cost</label>
                           <div className="control">
-                            <textarea
+                            <input
                               onChange={(event) => this.handleChange(event)}
                               type="text"
-                              rows="5"
+                              name="total_cost"
+                              className="input"
+                            />
+                          </div>
+                          {/* {errors.username && (
+                            <small className="help is-danger">
+                              {errors.username}
+                            </small>
+                          )} */}
+                        </div>
+                        <div className="field">
+                          <label className="label">Account Type</label>
+                          <div className="control">
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="text"
+                              name="account_type"
+                              className="input"
+                            />
+                          </div>
+                          {/* {errors.username && (
+                            <small className="help is-danger">
+                              {errors.username}
+                            </small>
+                          )} */}
+                        </div>
+                        <div className="field">
+                          <label className="label">Broker</label>
+                          <div className="control">
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="text"
+                              name="broker"
+                              className="input"
+                            />
+                          </div>
+                          {/* {errors.username && (
+                            <small className="help is-danger">
+                              {errors.username}
+                            </small>
+                          )} */}
+                        </div>
+                        <div className="field">
+                          <label className="label">Comment</label>
+                          <div className="control">
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="text"
                               name="comment"
                               className="input"
                             />
@@ -174,4 +256,4 @@ class Investment extends React.Component {
   }
 
 }
-export default Investment
+export default Trade
